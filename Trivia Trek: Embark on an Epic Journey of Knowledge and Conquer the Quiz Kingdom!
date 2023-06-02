@@ -1,0 +1,245 @@
+#include <bits/stdc++.h>
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+void displayResult(int score);
+void celebrate();
+void commiserate();
+
+int main() {
+    char playAgain;
+    srand(time(0));
+
+    do {
+        int score = 0;
+
+        cout << "Welcome to the Quiz Game!" << endl;
+        cout << "------------------------" << endl;
+        cout << "Quiz Instructions:" << endl;
+        cout << "- The quiz contains 10 multiple-choice questions." << endl;
+        cout << "- Each correct answer scores 1 point." << endl;
+        cout << "- There is no negative marking." << endl;
+        cout << "------------------------" << endl;
+        cout << "Press 's' to start the quiz." << endl;
+
+        char start;
+        cin >> start;
+        if (start != 's' && start != 'S') {
+            cout << "Invalid input. Please enter 's' to start the quiz." << endl;
+            continue;
+        }
+
+        cout << "------------------------" << endl;
+        cout << "Quiz Questions:" << endl;
+
+        int questionNumber = 1;
+
+        // Quiz Questions
+        while (questionNumber <= 10) {
+            char option;
+
+            switch (questionNumber) {
+                case 1:
+                    cout << "Q" << questionNumber << ". Who was the founder of the Maratha Empire?" << endl;
+                    cout << "(a) Shivaji Maharaj" << endl;
+                    cout << "(b) Baji Rao I" << endl;
+                    cout << "(c) Balaji Vishwanath" << endl;
+                    cout << "(d) Peshwa Madhavrao" << endl;
+                    cin >> option;
+                    if (option == 'a' || option == 'A') {
+                        score++;
+                    }
+                    break;
+
+                case 2:
+                    cout << "Q" << questionNumber << ". Who is the author of the famous novel 'To Kill a Mockingbird'?" << endl;
+                    cout << "(a) Harper Lee" << endl;
+                    cout << "(b) Mark Twain" << endl;
+                    cout << "(c) F. Scott Fitzgerald" << endl;
+                    cout << "(d) J.D. Salinger" << endl;
+                    cin >> option;
+                    if (option == 'a' || option == 'A') {
+                        score++;
+                    }
+                    break;
+
+                case 3:
+                    cout << "Q" << questionNumber << ". Which city is the capital of India?" << endl;
+                    cout << "(a) Mumbai" << endl;
+                    cout << "(b) New Delhi" << endl;
+                    cout << "(c) Kolkata" << endl;
+                    cout << "(d) Chennai" << endl;
+                    cin >> option;
+                    if (option == 'b' || option == 'B') {
+                        score++;
+                    }
+                    break;
+
+                case 4:
+                    cout << "Q" << questionNumber << ". Who wrote the play 'Hamlet'?" << endl;
+                    cout << "(a) William Shakespeare" << endl;
+                    cout << "(b) Arthur Miller" << endl;
+                    cout << "(c) Tennessee Williams" << endl;
+                    cout << "(d) Henrik Ibsen" << endl;
+                    cin >> option;
+                    if (option == 'a' || option == 'A') {
+                        score++;
+                    }
+                    break;
+
+                case 5:
+                    cout << "Q" << questionNumber << ". What is the chemical symbol for gold?" << endl;
+                    cout << "(a) Ag" << endl;
+                    cout << "(b) Au" << endl;
+                    cout << "(c) Cu" << endl;
+                    cout << "(d) Fe" << endl;
+                    cin >> option;
+                    if (option == 'b' || option == 'B') {
+                        score++;
+                    }
+                    break;
+
+                case 6:
+                    cout << "Q" << questionNumber << ". Which planet is known as the 'Red Planet'?" << endl;
+                    cout << "(a) Venus" << endl;
+                    cout << "(b) Mars" << endl;
+                    cout << "(c) Jupiter" << endl;
+                    cout << "(d) Saturn" << endl;
+                    cin >> option;
+                    if (option == 'b' || option == 'B') {
+                        score++;
+                    }
+                    break;
+
+                case 7:
+                    cout << "Q" << questionNumber << ". In which country is the Taj Mahal located?" << endl;
+                    cout << "(a) India" << endl;
+                    cout << "(b) China" << endl;
+                    cout << "(c) Egypt" << endl;
+                    cout << "(d) Italy" << endl;
+                    cin >> option;
+                    if (option == 'a' || option == 'A') {
+                        score++;
+                    }
+                    break;
+
+                case 8:
+                    cout << "Q" << questionNumber << ". Who painted the Mona Lisa?" << endl;
+                    cout << "(a) Leonardo da Vinci" << endl;
+                    cout << "(b) Vincent van Gogh" << endl;
+                    cout << "(c) Pablo Picasso" << endl;
+                    cout << "(d) Michelangelo" << endl;
+                    cin >> option;
+                    if (option == 'a' || option == 'A') {
+                        score++;
+                    }
+                    break;
+
+                case 9:
+                    cout << "Q" << questionNumber << ". What is the national animal of India?" << endl;
+                    cout << "(a) Lion" << endl;
+                    cout << "(b) Tiger" << endl;
+                    cout << "(c) Elephant" << endl;
+                    cout << "(d) Peacock" << endl;
+                    cin >> option;
+                    if (option == 'b' || option == 'B') {
+                        score++;
+                    }
+                    break;
+
+                case 10:
+                    cout << "Q" << questionNumber << ". Who is the current President of the United States?" << endl;
+                    cout << "(a) Joe Biden" << endl;
+                    cout << "(b) Barack Obama" << endl;
+                    cout << "(c) Donald Trump" << endl;
+                    cout << "(d) George W. Bush" << endl;
+                    cin >> option;
+                    if (option == 'a' || option == 'A') {
+                        score++;
+                    }
+                    break;
+
+                default:
+                    break;
+            }
+
+            questionNumber++;
+        }
+
+        cout << "------------------------" << endl;
+        cout << "Quiz Result:" << endl;
+        cout << "Total Score: " << score << "/10" << endl;
+        if (score >= 6) {
+            celebrate();
+        } else {
+            commiserate();
+        }
+
+        cout << "------------------------" << endl;
+        cout << "Do you want to play the quiz again? (y/n): ";
+        cin >> playAgain;
+    } while (playAgain == 'y' || playAgain == 'Y');
+
+    cout << "Thank you for playing the quiz!" << endl;
+    return 0;
+}
+
+void celebrate() {
+    int randomNum = rand() % 3;
+
+    switch (randomNum) {
+        case 0:
+            cout << "🎉 Congratulations! You are a quiz whiz!" << endl;
+            break;
+        case 1:
+            cout << "🥳 Amazing! You really know your stuff!" << endl;
+            break;
+        case 2:
+            cout << "🎊 Well done! You're a trivia champion!" << endl;
+            break;
+        default:
+            break;
+    }
+}
+
+void commiserate() {
+    int randomNum = rand() % 3;
+
+    switch (randomNum) {
+        case 0:
+            cout << "Better luck next time! Keep practicing!" << endl;
+            break;
+        case 1:
+            cout << "Don't worry! You'll do better next time! Keep learning!" << endl;
+            break;
+        case 2:
+            cout << "You'll get them next time! Keep up the good work!" << endl;
+            break;
+        default:
+            break;
+    }
+}
+/*
+( #include <bits/stdc++.h> ) -> This line includes the entire standard library in a single line.
+The code starts with including the necessary libraries for input/output operations (iostream), generating random numbers (cstdlib), and seeding the random number generator (ctime).
+Three function prototypes are declared: displayResult(), celebrate(), and commiserate(). These functions will be defined later in the code.
+The main() function is defined as the entry point of the program.
+Inside the main() function, a char variable playAgain is declared to store the user's choice of playing the quiz again.
+The srand(time(0)) statement seeds the random number generator based on the current time, ensuring different random numbers on each program run.
+The code enters a do-while loop, which allows the user to play the quiz multiple times until they choose not to.
+Inside the loop, the score is initialized to 0, and the quiz instructions are displayed.
+The user is prompted to enter 's' to start the quiz. If the input is not 's' or 'S', an error message is displayed, and the loop continues to the next iteration.
+The questionNumber variable is initialized to 1.
+A while loop is used to iterate through the 10 quiz questions. The questionNumber determines which question is displayed.
+For each question, the options are displayed, and the user is prompted to enter their answer as a character.
+Based on the user's answer, if it matches the correct option, the score is incremented by 1.
+After each question, the questionNumber is incremented.
+After all the questions have been answered, the quiz result is displayed, along with the total score.
+Depending on the score, the celebrate() or commiserate() function is called to display a random celebratory or encouraging message.
+The user is prompted whether they want to play the quiz again. If the input is 'y' or 'Y', the loop continues to the next iteration.
+Outside the loop, a closing message is displayed, and the program terminates.
+The celebrate() function generates a random number between 0 and 2 and uses a switch statement to display a random celebratory message.
+The commiserate() function generates a random number between 0 and 2 and uses a switch statement to display a random message of encouragement.
+*/
