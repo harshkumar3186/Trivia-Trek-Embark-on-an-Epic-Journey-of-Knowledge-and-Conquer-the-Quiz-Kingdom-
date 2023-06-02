@@ -1,0 +1,141 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+int playQuiz();
+void displayResult(int score);
+void celebrate();
+void commiserate();
+
+int main() {
+    char playAgain;
+    srand(time(0)); // Seed the random number generator
+
+    do {
+        int finalResult = playQuiz();
+        cout << "Your score is: " << finalResult << endl;
+        displayResult(finalResult);
+
+        if (finalResult >= 6) {
+            celebrate();
+        } else {
+            commiserate();
+        }
+
+        cout << "Do you want to play the quiz again? (y/n): ";
+        cin >> playAgain;
+    } while (playAgain == 'y' || playAgain == 'Y');
+
+    cout << "Thank you for playing the quiz!" << endl;
+    return 0;
+}
+
+int playQuiz() {
+    char option;
+    int score = 0;
+
+    cout << "----------Welcome to the Quiz Game----------" << endl;
+    cout << "------Please follow the instructions------" << endl;
+    cout << "Step 1: The quiz contains a total of 10 questions." << endl;
+    cout << "Step 2: Each correct answer scores 1 point, and there is no negative marking." << endl;
+    cout << "Step 3: Please select an option (a, b, c, or d) for each question." << endl;
+    cout << "Step 4: Press 's' to start the quiz." << endl;
+    cout << "Step 5: Enjoy the quiz!" << endl;
+
+    char start;
+    cin >> start;
+    if (start != 's' && start != 'S') {
+        cout << "You have entered an invalid value. Please enter 's' to start the quiz." << endl;
+        return playQuiz();
+    }
+
+    // Quiz Questions
+    cout << "Q1. Who was the founder of the Maratha Empire?" << endl;
+    cout << "(a) Shivaji Maharaj" << endl;
+    cout << "(b) Baji Rao I" << endl;
+    cout << "(c) Balaji Vishwanath" << endl;
+    cout << "(d) Peshwa Madhavrao" << endl;
+    cin >> option;
+    if (option == 'a' || option == 'A') {
+        score++;
+    }
+
+    // ...
+
+    // Remaining quiz questions
+
+    return score;
+}
+
+void displayResult(int score) {
+    cout << "-------------------" << endl;
+    cout << "Quiz Result" << endl;
+    cout << "-------------------" << endl;
+    cout << "Total Score: " << score << endl;
+    if (score >= 6) {
+        cout << "Congratulations! You have passed the quiz." << endl;
+    } else {
+        cout << "Sorry! You have failed the quiz." << endl;
+    }
+    cout << "-------------------" << endl;
+}
+
+void celebrate() {
+    int randomNum = rand() % 3; // Generate a random number between 0 and 2
+
+    switch (randomNum) {
+        case 0:
+            cout << "🎉 Well done! You are a quiz whiz!" << endl;
+            break;
+        case 1:
+            cout << "🥳 Amazing! You really know your stuff!" << endl;
+            break;
+        case 2:
+            cout << "🎊 Congratulations! You're a trivia champion!" << endl;
+            break;
+        default:
+            break;
+    }
+}
+
+void commiserate() {
+    int randomNum = rand() % 3; // Generate a random number between 0 and 2
+
+    switch (randomNum) {
+        case 0:
+            cout << "Better luck next time! Keep practicing! 😊" << endl;
+            break;
+        case 1:
+            cout << "Don't worry! You'll do better next time! 💪" << endl;
+            break;
+        case 2:
+            cout << "You'll get 'em next time! Keep learning! 👍" << endl;
+            break;
+        default:
+            break;
+    }
+}
+
+/*
+The code begins with the necessary include statements to use input/output operations and generate random numbers.
+The function prototypes for playQuiz(), displayResult(), celebrate(), and commiserate() are declared.
+The main() function is defined, which serves as the entry point of the program.
+The variable playAgain is declared to store the user's choice of playing the quiz again.
+srand(time(0)) is called to seed the random number generator using the current time. This ensures different random numbers are generated on each run.
+The code enters a do-while loop, which allows the user to play the quiz multiple times.
+Inside the loop, playQuiz() function is called and its return value is stored in finalResult.
+The user's score is displayed using cout.
+The displayResult() function is called, which prints the quiz result and a corresponding message based on the score.
+Depending on the score, either celebrate() or commiserate() function is called to provide a personalized message.
+The user is prompted to play the quiz again. If the user enters 'y' or 'Y', the loop continues. Otherwise, the loop ends.
+After exiting the loop, a "Thank you" message is displayed, and the program terminates by returning 0.
+The playQuiz() function is defined, responsible for conducting the quiz and returning the user's score.
+Various instructions and quiz questions are displayed using cout.
+The user is prompted to press 's' to start the quiz. If an invalid input is provided, the function is recursively called until a valid input is received.
+Quiz questions are displayed one by one, and the user's answers are read using cin. If the answer is correct, the score is incremented.
+Finally, the score is returned to the calling function.
+The displayResult() function is defined, which takes the user's score as input and displays the quiz result along with a pass or fail message.
+The celebrate() function is defined, which generates a random number and displays a random celebratory message using a switch statement.
+The commiserate() function is defined, which generates a random number and displays a random message of encouragement using a switch statement.
+*/
